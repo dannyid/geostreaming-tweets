@@ -1,0 +1,14 @@
+{
+  "name": "geostreaming_tweets",
+  "description": "a map streaming tweets",
+  "author": "Kawandeep Virdee <whichlight@gmail.com>", 
+  "version":"0.0.1",
+  "dependencies": {
+    "express": "3.0.0rc1",
+    "tuiter": "0.1.2",
+    "socket.io":"~0.9.x"
+  },
+  "engines": {
+	"node" : "0.8.x"
+	}
+}
