@@ -5,7 +5,7 @@ var express = require('express')
 , keys = require('./keys.json')
 , io = require('socket.io');
 
-var TWITTER_FILTER = "love"; //filter the tweets by a keyword
+var TWITTER_FILTER = "testing"; //filter the tweets by a keyword
 var app = express();
 app.configure(function(){
     app.use(express.static(__dirname + '/public'));
@@ -13,7 +13,6 @@ app.configure(function(){
     app.set('port', process.env.PORT || 3000);
     app.use(express.bodyParser());
     app.use(app.router);
-
     });
 
 
@@ -26,17 +25,13 @@ var server = http.createServer(app).listen(app.get('port'), function() {
     });
 
 var io = require('socket.io').listen(server);
-
-
 var t = new Tuiter(keys);
-
-//var loc = {locations: [{long: -0.489, lat: 51.28},{long: 0.236, lat: 51.686}]};
 var loc = {locations: [{long: -180, lat: -90},{long: 180, lat: 90}]};
 var filter_str = TWITTER_FILTER;
 
 t.filter(loc, function(stream){
     stream.on("tweet", function(data){
-      if(data.coordinates && data.coordinates.coordinates && (data.text.toLowerCase().indexOf(filter_str)!==-1 || data.text.toLowerCase().indexOf('london2012')!==-1)){
+      if(data.coordinates && data.coordinates.coordinates && data.text.toLowerCase().indexOf(filter_str)!==-1){
 
       io.sockets.emit("tweet", {
 coordinates: data.coordinates.coordinates
@@ -45,7 +40,7 @@ coordinates: data.coordinates.coordinates
 , pic: data.user.profile_image_url
 , time: data.created_at
 });
-      } else if(data.place && (data.text.toLowerCase().indexOf(filter_str)!==-1 || data.text.toLowerCase().indexOf('london2012')!==-1)){
+      } else if(data.place && data.text.toLowerCase().indexOf(filter_str)!==-1){
       var place = data.place.bounding_box.coordinates[0][0];
       io.sockets.emit("tweet", {
 coordinates: place
