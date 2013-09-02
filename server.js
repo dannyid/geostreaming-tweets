@@ -5,11 +5,11 @@ var express = require('express')
 , keys = require('./keys.json')
 , io = require('socket.io');
 
-var TWITTER_FILTER = "testing"; //filter the tweets by a keyword
+var TWITTER_FILTER = ""; //filter the tweets by a keyword
 var app = express();
 app.configure(function(){
     app.use(express.static(__dirname + '/public'));
-    //	app.use(express.logger('dev'));	  
+	app.use(express.logger('dev'));
     app.set('port', process.env.PORT || 3000);
     app.use(express.bodyParser());
     app.use(app.router);
@@ -52,7 +52,7 @@ coordinates: place
       });
 
 stream.on("error", function(error){
-    console.log('error');  
+    console.log('error');
     console.log(error);
     });
 });

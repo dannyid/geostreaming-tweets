@@ -4,9 +4,10 @@
     <title>Geo-Streaming Tweets</title>
     <meta charset="utf-8" />
     <link rel="shortcut icon" href="/a/i/favicon.png" type="image/png" />
-    <title> Tweet Map </title> 
+    <title> Tweet Map </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <link rel="stylesheet" href="libs/dist/leaflet.css"/>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css"/>
+
     <link rel="stylesheet" href="style.css"/>
     <link rel="stylesheet" href="http://visionmedia.github.com/uikit/build/ui.css"/>
     <style>
@@ -15,21 +16,17 @@
   <body>
 
     <div id="map"></div>
-
-
     <ol id="info">
-      Geo-Streaming Tweets 
+      Geo-Streaming Tweets
       by <a href="http://whichlight.com">whichlight</a>
     </ol>
 
 
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
 
+    <script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
     <script src="http://visionmedia.github.com/uikit/build/ui.js"></script>
-
-    <script type="text/javascript" 
-      src="/socket.io/socket.io.js"></script>
-    <script type="text/javascript" src="libs/dist/leaflet.js"></script>
 
     <script type="text/javascript" src="main.js"></script>
     <script type="text/javascript">
