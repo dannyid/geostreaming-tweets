@@ -1,9 +1,10 @@
---geostreaming tweets--
-An app the stream tweets onto a map. Originally made for the keyword "olympics"
-to see the conversation around the world surrounding the olympics.
-http://whichlight.com/blog/geostreaming-olympics/
+An app that streams images of sunsets coming in from Twitter and overlays them onto a map, creating an infinite sunset.
 
-Add a keys.json file with the consumer_key, consumer_secret, access_tokey_key,
-and access_token_secret for the Twitter API
+Add a keys.json file with:
 
-@whichlight
+{
+    "consumer_key": "[YOUR_CONSUMER_KEY]",
+    "consumer_secret": "[YOUR_CONSUMER_SECRET]", 
+    "access_token_key": "[YOUR_ACCESS_TOKEN_KEY]",
+    "access_token_secret": "[YOUR_ACCESS_TOKEN_SECRET]"
+}

@@ -5,7 +5,7 @@ var express = require('express')
 , keys = require('./keys.json')
 , io = require('socket.io');
 
-var TWITTER_FILTER = ""; //filter the tweets by a keyword
+var TWITTER_FILTER = "sunset"; //filter the tweets by a keyword
 var app = express();
 app.configure(function(){
     app.use(express.static(__dirname + '/public'));
